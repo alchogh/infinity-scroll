@@ -20,10 +20,16 @@ interface props {
 function Main() {
   const [data, setData] = useState<props[]>([]);
 
+  const getData = async () => {
+    const response = await fetch("https://dummyjson.com/users/", {
+      method: "GET",
+    });
+    const result = await response.json();
+    setData(result.users);
+  };
+
   useEffect(() => {
-    fetch("https://dummyjson.com/users/")
-      .then((res: any) => res.json())
-      .then((result: any) => setData(result.users));
+    void getData();
   }, []);
 
   return (

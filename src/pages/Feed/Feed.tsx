@@ -16,7 +16,6 @@ interface props {
 }
 
 const Feed = (props: props) => {
-  console.log(props);
   return (
     <S.Container>
       <img src={props.image} alt="pic" />
