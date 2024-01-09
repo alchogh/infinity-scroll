@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Feed from "../Feed/Feed";
+import useIntersaction from "../../hooks/useIntersaction";
 import * as S from "./Main.style";
 
 interface props {
@@ -32,10 +33,15 @@ function Main() {
     void getData();
   }, []);
 
+  const ref = useRef(null);
+  const isVisible = useIntersaction(ref);
+
   return (
     <S.Header>
       {data.map((list: props) => {
-        return <Feed key={list.id} {...list} />;
+        return (
+          <div ref={ref}>{isVisible && <Feed key={list.id} {...list} />} ;</div>
+        );
       })}
     </S.Header>
   );
