@@ -5,6 +5,20 @@
   text-align: center;
 }
 
+.content {
+  border : 1px solid #000;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.visible{
+  background-color:black;
+  color:white;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
